@@ -1,4 +1,4 @@
-from pokemon import AbstractPokemon
+from business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 class DefenderPokemon(AbstractPokemon):
 
