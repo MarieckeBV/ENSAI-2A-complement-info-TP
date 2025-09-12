@@ -42,8 +42,23 @@ class AttackClient(metaclass=Singleton):
             # TODO
             #   create an attack using the data contained in the json
             #   see class AttackFactory to do this
+            attack = AttackFactory().instantiate_attack(type = raw_attack['attack_type'],id = raw_attack['id'],power = raw_attack["power"], name = raw_attack['name'], element = raw_attack['element'], accuracy = raw_attack['accuracy'], description = raw_attack['description'])
+
 
         return attack
+
+    def get_all_attack(self):
+        url = f"{self.__HOST}{END_POINT}"
+        print("GET " + url + "\n")
+        req = requests.get(url)
+
+        attacks = None
+        if req.status_code == 200:
+            raw_attacks = req.json()
+            for raw_attack in raw_attacks:
+                attack = AttackFactory().instantiate_attack(type = raw_attack['attack_type'],id = raw_attack['id'],power = raw_attack["power"], name = raw_attack['name'], element = raw_attack['element'], accuracy = raw_attack['accuracy'], description = raw_attack['description'])
+                attacks.append(attack)
+        return attacks
 
 
 # Execute Code When the File Runs as a Script

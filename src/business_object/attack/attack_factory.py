@@ -60,3 +60,4 @@ class AttackFactory(metaclass=Singleton):
                 element=element,
             )
         return attack
+ 

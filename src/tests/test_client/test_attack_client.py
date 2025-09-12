@@ -14,7 +14,7 @@ en entier, et ne pas vraiment le contacter pour éviter des problèmes de donné
 """
 
 
-@mock.patch.dict(os.environ, {"HOST_WEBSERVICE": "http://web-services.domensai.ecole"})
+@mock.patch.dict(os.environ, {"HOST_WEBSERVICE": "https://user-ludo2ne-450102-user.user.lab.sspcloud.fr"})
 class TestAttackClient:
     def test_get_attack_ok(self):
         # GIVEN
